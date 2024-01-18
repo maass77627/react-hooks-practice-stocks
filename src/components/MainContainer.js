@@ -3,16 +3,16 @@ import StockContainer from "./StockContainer";
 import PortfolioContainer from "./PortfolioContainer";
 import SearchBar from "./SearchBar";
 
-function MainContainer() {
+function MainContainer({handleDropDown, dropdown, stocks, radio, portfolioStock, handleBoughtStock, onClickDelete, handleRadio}) {
   return (
     <div>
-      <SearchBar />
-      <div className="row">
+      <SearchBar dropdown={dropdown} handleDropDown={handleDropDown} radio={radio} handleRadio={handleRadio}/>
+        <div className="row">
         <div className="col-8">
-          <StockContainer />
+          <StockContainer dropdown={dropdown} radio={radio} handleBoughtStock={handleBoughtStock} stocks={stocks}/>
         </div>
         <div className="col-4">
-          <PortfolioContainer />
+          <PortfolioContainer onClickDelete={onClickDelete} portfolioStock={portfolioStock}/>
         </div>
       </div>
     </div>

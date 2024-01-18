@@ -1,33 +1,36 @@
 import React from "react";
 
-function SearchBar() {
+
+function SearchBar({dropdown, handleRadio, radio, handleDropDown}) {
+
+
   return (
     <div>
       <strong>Sort by:</strong>
       <label>
         <input
           type="radio"
-          value="Alphabetically"
+          value="alphabetically"
           name="sort"
-          checked={null}
-          onChange={null}
+          checked={radio === "alphabetically"}
+         onChange={(e) => handleRadio(e.target.value)}
         />
         Alphabetically
       </label>
       <label>
         <input
           type="radio"
-          value="Price"
+          value="price"
           name="sort"
-          checked={null}
-          onChange={null}
+          checked={radio === "price"}
+          onChange={(e) => handleRadio(e.target.value)}
         />
         Price
       </label>
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select value={dropdown} onChange={(e) => handleDropDown(e.target.value)}>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
